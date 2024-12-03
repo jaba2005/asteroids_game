@@ -1,0 +1,4 @@
+/venv
+statistics.txt
+/.mypy_cache
+/__pycache__
