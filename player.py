@@ -1,10 +1,8 @@
 """
 
-Нужно дописать.
+Файл содержит.
 
- - механику выстрела (готово)
- - смерть игрока и количество хп (готово)
- - тороидальную геометрию для полета (готово)
+ - класс, реализующий функционал корабля
 
 """
 import pygame as pg
@@ -36,14 +34,6 @@ class Player(pg.sprite.Sprite):
         self.save_time = 3000
         self.respawn_time = pg.time.get_ticks()
         self.last_shot_time = self.respawn_time
-
-    def get_dir(self):
-        """Метод нужен был для отладки."""
-        return (self.direction * 100 + np.array(self.rect.center))
-
-    def get_center(self):
-        """Метод нужен был для отладки."""
-        return self.rect.center
 
     def rotate(self, angle):
         """

@@ -1,12 +1,4 @@
-"""
-
-Нужно дописать.
-
- - статистику (готово)
- - меню (готово)
- - динамический фон (готово)
-
-"""
+"""Главный файл и игровым циклом."""
 import pygame as pg
 from player import Player
 from asteroids import Asteroid
