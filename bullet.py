@@ -12,6 +12,8 @@ from settings import DISPLAY_HEIGHT, DISPLAY_WIDTH
 from asteroids import Asteroid
 from background import BgObjectAnimated
 
+EXPLOSION_IMGS = [pg.image.load(i) for i in EXPLOSION]
+BULLET_IMG = pg.image.load(BULLET)
 
 class Bullet(pg.sprite.Sprite):
     """Непосредственно сам класс."""
@@ -21,7 +23,7 @@ class Bullet(pg.sprite.Sprite):
         super().__init__()
         self.player = player
         self.direction = direction * 3
-        self.img_src = pg.image.load(BULLET)
+        self.img_src = BULLET_IMG
         default_direction = np.array([1, 0])
         self.rect = self.img_src.get_rect(center=(x, y))
         normalized_dir = direction / np.linalg.norm(direction)
@@ -49,7 +51,7 @@ class Bullet(pg.sprite.Sprite):
                 group.add(
                     BgObjectAnimated(
                         *self.rect.center,
-                        EXPLOSION,
+                        EXPLOSION_IMGS,
                         frame_duration=100,
                         scale_by=4,
                         killed=True

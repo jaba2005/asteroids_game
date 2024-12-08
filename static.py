@@ -1,4 +1,6 @@
 """Все константы с путями к файлам."""
+from pygame.image import load
+
 
 SPACE_SHIP_IMG = r'static\img\spaceship_orange.png'
 BACKGROUND_SPACE = r'static\img\background_space.png'

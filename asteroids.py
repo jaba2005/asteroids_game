@@ -13,7 +13,7 @@ from settings import DISPLAY_HEIGHT, DISPLAY_WIDTH
 
 # PROBS = [1 / (2 * (i + 1)) for i in range(len(ASTEROIDS))]
 PROBS = [1/3, 1/3, 1/6, 1/6]
-
+ASTEROIDS_IMGS = [pg.image.load(i) for i in ASTEROIDS]
 
 class Asteroid(pg.sprite.Sprite):
     """Класс астероида."""
@@ -69,8 +69,8 @@ class Asteroid(pg.sprite.Sprite):
             )
         self.rotation_per_tick = np.random.randint(-2, 2)
         self.rotation_angle = 0
-        img = np.random.choice(ASTEROIDS, p=PROBS)
-        self.img_src = pg.image.load(img)
+        img = np.random.choice(ASTEROIDS_IMGS, p=PROBS)
+        self.img_src = img
         self.image = self.img_src
         self.rect = self.image.get_rect(center=(x, y))
 

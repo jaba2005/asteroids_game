@@ -19,14 +19,14 @@ class BgObjectAnimated(pg.sprite.Sprite):
     def __init__(
             self,
             x, y,
-            animation_files: list[str],
+            animation_files,
             frame_duration: int = 500,
             scale_by: int = 1,
             killed=False
                 ):
         """Инициализация фонового объекта."""
         super().__init__()
-        self.frames = [pg.image.load(img) for img in animation_files]
+        self.frames = animation_files
         if scale_by != 1:
             self.frames = [
                 pg.transform.scale_by(img, scale_by) for img in self.frames

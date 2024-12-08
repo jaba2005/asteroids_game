@@ -1,4 +1,7 @@
 """Главный файл и игровым циклом."""
+"""
+НУЖНО ВЫНЕСТИ ЗАГРУЗКУ ИЗОБРАЖЕНИЙ ИЗ КЛАССА
+"""
 import pygame as pg
 from player import Player
 from asteroids import Asteroid
@@ -57,14 +60,19 @@ with open('statistics.txt', 'r') as file:
 all_sprites: pg.sprite.Group = pg.sprite.Group()
 
 bg_objects: pg.sprite.Group = pg.sprite.Group()
+
+BG_TRASH_ANIMATION_IMGS = [pg.image.load(i) for i in BG_TRASH_ANIMATION]
+BG_TRASH_ANIMATION2_IMGS = [pg.image.load(i) for i in BG_TRASH_ANIMATION2]
+BG_TRASH_ANIMATION3_IMGS = [pg.image.load(i) for i in BG_TRASH_ANIMATION3]
+
 bg_objects.add(
-    BgObjectAnimated(200, 200, BG_TRASH_ANIMATION, 1000)
+    BgObjectAnimated(200, 200, BG_TRASH_ANIMATION_IMGS, 1000)
 )
 bg_objects.add(
-    BgObjectAnimated(700, 300, BG_TRASH_ANIMATION2, 2000, scale_by=4)
+    BgObjectAnimated(700, 300, BG_TRASH_ANIMATION2_IMGS, 2000, scale_by=4)
 )
-bg_objects.add(
-    BgObjectAnimated(100, 500, BG_TRASH_ANIMATION3, 1000, scale_by=2)
+bg_objects.add( 
+    BgObjectAnimated(100, 500, BG_TRASH_ANIMATION3_IMGS, 1000, scale_by=2)
 )
 
 def play_btn_func():

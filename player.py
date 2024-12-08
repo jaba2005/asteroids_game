@@ -14,6 +14,8 @@ from asteroids import Asteroid
 from static import EXPLOSION
 
 
+EXPLOSION_IMGS = [pg.image.load(i) for i in EXPLOSION]
+
 class Player(pg.sprite.Sprite):
     """Непосредственно сам класс."""
 
@@ -22,7 +24,7 @@ class Player(pg.sprite.Sprite):
         super().__init__()
         self.start = (x, y)
         self.score = 0
-        self.image_src = pg.image.load(img_path)
+        self.image_src = pg.image.load(img_path) # желательно вынести это из класса
         self.image_src = pg.transform.rotozoom(self.image_src, 0, 0.5)
         self.image = self.image_src
         self.angle = 0
@@ -79,7 +81,7 @@ class Player(pg.sprite.Sprite):
                     group.add(
                         BgObjectAnimated(
                             *self.rect.center,
-                            EXPLOSION,
+                            EXPLOSION_IMGS,
                             frame_duration=100,
                             scale_by=4,
                             killed=True
